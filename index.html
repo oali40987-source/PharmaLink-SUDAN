@@ -142,3 +142,22 @@
 
 </body>
 </html>
+<script>
+    function toggleLanguage() {
+        const body = document.getElementById('body-tag');
+        const html = document.getElementById('main-html');
+        
+        // إذا كان الوضع الحالي عربي، حوله لإنجليزي
+        if (!body.classList.contains('en-mode')) {
+            body.classList.add('en-mode');
+            html.setAttribute('dir', 'ltr');
+            html.setAttribute('lang', 'en');
+        } else {
+            // العودة للعربي
+            body.classList.remove('en-mode');
+            html.setAttribute('dir', 'rtl');
+            html.setAttribute('lang', 'ar');
+        }
+    }
+</script>
+
