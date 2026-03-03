@@ -78,6 +78,16 @@
         
         .en-mode { direction: ltr; text-align: left; }
     </style>
+    /* إخفاء النص الإنجليزي افتراضياً */
+[lang="en"] { display: none; }
+
+/* عند تفعيل وضع اللغة الإنجليزية: أخفِ العربي وأظهر الإنجليزي */
+.en-mode [lang="ar"] { display: none; }
+.en-mode [lang="en"] { display: block; }
+
+/* تغيير اتجاه الصفحة عند التحويل للإنجليزية */
+.en-mode { direction: ltr; text-align: left; }
+
 </head>
 <body>
 
