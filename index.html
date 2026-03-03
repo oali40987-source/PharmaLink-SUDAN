@@ -5,34 +5,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PharmaLink</title>
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="pharmalink_logo.png" type="image/png">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header>
-        <img src="pharmalink_logo.png" alt="PharmaLink Logo" />
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Services</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
+        <h1>PharmaLink</h1>
+        <button id="lang-toggle">🇬🇧 | 🇸🇩</button>
+        <svg id="logo" viewBox="0 0 100 100" aria-label="PharmaLink Logo">
+            <path d="M10 10 H 90 V 90 H 10 Z" fill="blue" stroke="green" stroke-width="5" />
+            <path d="M30 35 H 70 V 70 H 30 Z" fill="white" />
+            <text x="50" y="50" text-anchor="middle" fill="white">+</text>
+        </svg>
     </header>
 
     <main>
-        <h1>Welcome to PharmaLink</h1>
-        <p>Improving healthcare through technology.</p>
+        <!-- Main content here -->
     </main>
 
     <footer>
-        <p>&copy; 2026 PharmaLink. All rights reserved.</p>
-        <nav>
-            <ul>
-                <li><a href="#">Privacy Policy</a></li>
-                <li><a href="#">Terms of Service</a></li>
-            </ul>
-        </nav>
+        <div>
+            <a href="https://twitter.com/PharmaLink">Twitter</a>
+            <a href="https://facebook.com/PharmaLink">Facebook</a>
+            <a href="https://linkedin.com/company/pharmalink">LinkedIn</a>
+        </div>
     </footer>
+
+    <div id="chat-widget" role="dialog" aria-labelledby="chat-label" tabindex="0">
+        <button id="chat-toggle">💬 Chat</button>
+        <div id="chat-interface" aria-hidden="true">
+            <div id="message-history">
+                <!-- Message history goes here -->
+            </div>
+            <input type="text" id="user-message" aria-label="Type your message and press Enter" />
+        </div>
+    </div>
+
+    <script>
+        // JavaScript for toggling languages and chat widget
+
+        document.getElementById('lang-toggle').addEventListener('click', function() {
+            alert('Language toggled!'); // Placeholder for toggle functionality
+        });
+
+        const chatToggle = document.getElementById('chat-toggle');
+        const chatInterface = document.getElementById('chat-interface');
+
+        chatToggle.addEventListener('click', function() {
+            const isOpen = chatInterface.getAttribute('aria-hidden') === 'false';
+            chatInterface.setAttribute('aria-hidden', isOpen);
+            chatToggle.textContent = isOpen ? '💬 Chat' : '❌ Close Chat';
+        });
+
+        document.getElementById('user-message').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                // Send message functionality goes here
+                e.preventDefault();
+                alert('Message sent!'); // Placeholder for sending message
+            }
+        });
+
+        // Accessibility support
+        document.addEventListener('keydown', function(e) {
+            if (e.altKey) {
+                if (e.key === 'a') {
+                    chatToggle.focus();
+                } else if (e.key === 'l') {
+                    document.getElementById('lang-toggle').focus();
+                }
+            }
+        });
+    </script>
 </body>
 </html>
