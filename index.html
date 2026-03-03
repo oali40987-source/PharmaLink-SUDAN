@@ -3,171 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PharmaLink-SUDAN | فارمالينك السودان</title>
+    <title>PharmaLink-SUDAN</title>
     <style>
         :root {
             --primary: #0056b3;
             --secondary: #28a745;
             --light: #f8f9fa;
-            --dark: #343a40;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Segoe UI', Tahoma, sans-serif;
             margin: 0;
             background-color: var(--light);
             transition: all 0.3s ease;
         }
 
-        /* شريط التنقل */
-        nav {
-            background: white;
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        .logo {
-            font-weight: bold;
-            font-size: 1.5rem;
-            color: var(--primary);
-        }
-
-        .lang-switch {
-            background: var(--primary);
+        header {
+            background-color: var(--primary);
             color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .lang-btn {
+            background: #fff;
+            color: var(--primary);
             border: none;
-            padding: 8px 15px;
+            padding: 10px 20px;
             border-radius: 20px;
             cursor: pointer;
             font-weight: bold;
+            margin-bottom: 20px;
         }
 
-        /* القسم الرئيسي */
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: linear-gradient(135deg, #0056b3, #00aaff);
-            color: white;
-        }
-
-        .hero h1 { font-size: 3rem; margin-bottom: 20px; }
-
-        /* المميزات */
-        .features {
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 20px;
-            padding: 50px 5%;
+            padding: 20px;
         }
 
         .card {
             background: white;
-            padding: 30px;
+            padding: 25px;
             border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
             text-align: center;
         }
 
-        /* دعم اللغتين - إخفاء وإظهار */
+        /* التحكم في إظهار وإخفاء اللغات */
         [lang="en"] { display: none; }
+        
         .en-mode [lang="ar"] { display: none; }
         .en-mode [lang="en"] { display: block; }
         
+        /* تغيير الاتجاه عند وضع الإنجليزية */
         .en-mode { direction: ltr; text-align: left; }
     </style>
-    /* إخفاء النص الإنجليزي افتراضياً */
-[lang="en"] { display: none; }
-
-/* عند تفعيل وضع اللغة الإنجليزية: أخفِ العربي وأظهر الإنجليزي */
-.en-mode [lang="ar"] { display: none; }
-.en-mode [lang="en"] { display: block; }
-
-/* تغيير اتجاه الصفحة عند التحويل للإنجليزية */
-.en-mode { direction: ltr; text-align: left; }
-
 </head>
-<body>
+<body id="body-tag">
 
-    <nav>
-        <div class="logo">PharmaLink-SUDAN</div>
-        <button class="lang-switch" onclick="toggleLanguage()">English / عربي</button>
-    </nav>
-
-    <section class="hero">
+    <header>
+        <button class="lang-btn" onclick="toggleLanguage()">English / عربي</button>
+        
         <div lang="ar">
             <h1>فارمالينك السودان</h1>
             <p>نظام إدارة صيدليات وسوق إلكتروني قائم على الحوسبة السحابية</p>
         </div>
+
         <div lang="en">
             <h1>PharmaLink SUDAN</h1>
-            <p>Cloud-based Pharmacy Management System & E-Marketplace</p>
+            <p>Cloud-based Pharmacy Management & Marketplace System</p>
         </div>
-    </section>
+    </header>
 
     <div class="container">
-        <section class="features">
-            <div class="card">
-                <div lang="ar">
-                    <h3>إدارة المخزون</h3>
-                    <p>تتبع الأدوية والمستلزمات الطبية بالوقت الفعلي.</p>
-                </div>
-                <div lang="en">
-                    <h3>Inventory Management</h3>
-                    <p>Real-time tracking of medicines and medical supplies.</p>
-                </div>
+        <div class="card">
+            <div lang="ar">
+                <h3>إدارة المخزون</h3>
+                <p>تتبع الأدوية والمستلزمات الطبية بالوقت الفعلي.</p>
             </div>
+            <div lang="en">
+                <h3>Inventory Management</h3>
+                <p>Real-time tracking of medicines and medical supplies.</p>
+            </div>
+        </div>
 
-            <div class="card">
-                <div lang="ar">
-                    <h3>تحليلات ذكية</h3>
-                    <p>تقارير مالية وتوقعات لحركة المبيعات بدقة عالية.</p>
-                </div>
-                <div lang="en">
-                    <h3>Smart Analytics</h3>
-                    <p>Financial reports and accurate sales forecasting.</p>
-                </div>
+        <div class="card">
+            <div lang="ar">
+                <h3>تحليلات ذكية</h3>
+                <p>تقارير مالية وتوقعات لحركة المبيعات بدقة عالية.</p>
             </div>
-        </section>
+            <div lang="en">
+                <h3>Smart Analytics</h3>
+                <p>Financial reports and accurate sales forecasting.</p>
+            </div>
+        </div>
     </div>
 
     <script>
         function toggleLanguage() {
-            const body = document.body;
+            const body = document.getElementById('body-tag');
             const html = document.getElementById('main-html');
             
-            if (body.classList.contains('en-mode')) {
-                body.classList.remove('en-mode');
-                html.setAttribute('dir', 'rtl');
-                html.setAttribute('lang', 'ar');
-            } else {
+            if (!body.classList.contains('en-mode')) {
                 body.classList.add('en-mode');
                 html.setAttribute('dir', 'ltr');
                 html.setAttribute('lang', 'en');
+            } else {
+                body.classList.remove('en-mode');
+                html.setAttribute('dir', 'rtl');
+                html.setAttribute('lang', 'ar');
             }
         }
     </script>
-
 </body>
 </html>
-<script>
-    function toggleLanguage() {
-        const body = document.getElementById('body-tag');
-        const html = document.getElementById('main-html');
-        
-        // إذا كان الوضع الحالي عربي، حوله لإنجليزي
-        if (!body.classList.contains('en-mode')) {
-            body.classList.add('en-mode');
-            html.setAttribute('dir', 'ltr');
-            html.setAttribute('lang', 'en');
-        } else {
-            // العودة للعربي
-            body.classList.remove('en-mode');
-            html.setAttribute('dir', 'rtl');
-            html.setAttribute('lang', 'ar');
-        }
-    }
-</script>
-
